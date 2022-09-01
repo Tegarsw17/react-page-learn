@@ -1,8 +1,7 @@
 // children component
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import Axios from "axios";
 import Collection from "./collection.albums";
 
 const Albums = (props) => {
