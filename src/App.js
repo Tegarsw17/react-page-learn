@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect, useRef, useState } from "react";
+import MainLayouts from "./components/Layouts/main.layouts";
+import Albums from "./components/Albums/main.albums";
+import CardHome from "./components/Home/main.homes";
+import Posts from "./components/Posts/main.posts";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MainLayouts>
+        <Router>
+          <Routes>
+            <Route path="/" element={<CardHome />} />
+            <Route path="/albums" element={<Albums />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route
+              path="/*"
+              element={
+                <h1 className="text-center text-danger">404 NOT FOUND</h1>
+              }
+            />
+          </Routes>
+        </Router>
+        {/* <Albums title="Image API" description="We fetch API from third party" /> */}
+      </MainLayouts>
+    </>
   );
-}
+};
 
 export default App;
